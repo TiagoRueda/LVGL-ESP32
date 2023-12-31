@@ -1,0 +1,54 @@
+[1/5] cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.1.2-2\workspace\spi_lcd_touch\build\esp-idf\esptool_py && python C:/Espressif/frameworks/esp-idf-v5.1.2-2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Espressif/frameworks/esp-idf-v5.1.2-2/workspace/spi_lcd_touch/build/partition_table/partition-table.bin C:/Espressif/frameworks/esp-idf-v5.1.2-2/workspace/spi_lcd_touch/build/spi_lcd_touch.bin"
+spi_lcd_touch.bin binary size 0x62790 bytes. Smallest app partition is 0x100000 bytes. 0x9d870 bytes (62%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.1.2-2\workspace\spi_lcd_touch\build\bootloader\esp-idf\esptool_py && python C:/Espressif/frameworks/esp-idf-v5.1.2-2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Espressif/frameworks/esp-idf-v5.1.2-2/workspace/spi_lcd_touch/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6810 bytes. 0x7f0 bytes (7%) free.
+[2/3] cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.1.2-2\components\esptool_py && C:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.1.2-2 -D SERIAL_TOOL=python;;C:/Espressif/frameworks/esp-idf-v5.1.2-2/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Espressif/frameworks/esp-idf-v5.1.2-2/workspace/spi_lcd_touch/build -P C:/Espressif/frameworks/esp-idf-v5.1.2-2/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM3 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 spi_lcd_touch.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.dev3
+Serial port COM3
+Connecting.....
+Chip is ESP32-D0WD-V3 (revision v3.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: b0:a7:32:f2:6e:9c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00072fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26640 bytes to 16690...
+Writing at 0x00001000... (50 %)
+Writing at 0x0000768e... (100 %)
+Wrote 26640 bytes (16690 compressed) at 0x00001000 in 0.6 seconds (effective 356.2 kbit/s)...
+Hash of data verified.
+Compressed 403344 bytes to 247741...
+Writing at 0x00010000... (6 %)
+Writing at 0x00018b8a... (12 %)
+Writing at 0x00024838... (18 %)
+Writing at 0x0002a0d1... (25 %)
+Writing at 0x0002fe9d... (31 %)
+Writing at 0x00035866... (37 %)
+Writing at 0x0003b60a... (43 %)
+Writing at 0x00040c19... (50 %)
+Writing at 0x000464e2... (56 %)
+Writing at 0x0004c05e... (62 %)
+Writing at 0x00051fc9... (68 %)
+Writing at 0x0005771b... (75 %)
+Writing at 0x0005cfec... (81 %)
+Writing at 0x000630fd... (87 %)
+Writing at 0x0006965f... (93 %)
+Writing at 0x00071a44... (100 %)
+Wrote 403344 bytes (247741 compressed) at 0x00010000 in 6.3 seconds (effective 514.5 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 233.1 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
